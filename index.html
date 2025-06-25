@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendar Cita | Lubri-Servicios</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="wizard-container">
+    <header>
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h1>Agendar Mantenimiento</h1>
+    </header>
+
+    <div class="steps">
+      <div class="step active" data-step="1">Datos del cliente</div>
+      <div class="step" data-step="2">Disponibilidad</div>
+      <div class="step" data-step="3">Vista previa</div>
+      <div class="step" data-step="4">Confirmación</div>
+    </div>
+
+    <form id="formulario">
+      <!-- Paso 1: Datos del cliente -->
+      <section class="step-content active data-sect" data-step="1">
+        <h2>Datos personales</h2>
+        <input type="text" id="nombre" placeholder="Nombre completo" required />
+        <input type="text" id="cedula" placeholder="Cédula de ciudadanía" required />
+        <input type="text" id="placa" placeholder="Placa del vehículo" required />
+        <input type="text" id="marca" placeholder="Marca del vehículo" required />
+        <input type="text" id="modelo" placeholder="Modelo del vehículo" required />
+
+        <div class="calendar-options">
+          <div class="calendar-btn" data-calendario="Gmail">📧 Gmail</div>
+          <div class="calendar-btn" data-calendario="Outlook">📨 Outlook</div>
+          <div class="calendar-btn" data-calendario="Exchange">💼 Exchange</div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="next-btn">Siguiente</button>
+        </div>
+      </section>
+
+      <!-- Paso 2: Disponibilidad -->
+      <section class="step-content" data-step="2">
+        <h2>Selecciona tu disponibilidad</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th>
+            </tr>
+          </thead>
+          <tbody id="disponibilidad"></tbody>
+        </table>
+        <div class="btn-group">
+          <button type="button" class="back-btn">Atrás</button>
+          <button type="button" class="next-btn">Siguiente</button>
+        </div>
+      </section>
+
+      <!-- Paso 3: Vista previa -->
+      <section class="step-content" data-step="3">
+        <h2>Vista previa</h2>
+        <div id="vista-previa" class="preview"></div>
+        <div class="btn-group">
+          <button type="button" class="back-btn">Atrás</button>
+          <button type="button" class="next-btn">Confirmar</button>
+        </div>
+      </section>
+
+      <!-- Paso 4: Confirmación -->
+      <section class="step-content" data-step="4">
+        <h2>✅ Tu cita ha sido agendada</h2>
+        <p>Enlace generado:</p>
+        <input id="enlaceCita" type="text" readonly />
+        <button type="button" onclick="location.reload()">Volver al inicio</button>
+      </section>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
